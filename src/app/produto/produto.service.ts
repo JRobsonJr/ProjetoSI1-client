@@ -18,7 +18,7 @@ export class ProdutoService {
 
   getProdutos() {
     return this.http
-      .get('http://localhost:8080/produto')
+      .get('https://estoque-facil-client.herokuapp.com/produto')
       .map(result => (this.result = result.json() as Array<Produto>));
   }
 

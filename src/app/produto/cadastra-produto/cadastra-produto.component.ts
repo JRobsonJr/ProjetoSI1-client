@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { Produto } from '../produto.model';
 import { ProdutoService } from '../produto.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastra-produto',

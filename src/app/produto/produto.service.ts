@@ -1,15 +1,15 @@
-import { Injectable, EventEmitter, OnInit } from "@angular/core";
-import { Http, Headers, RequestOptions } from "@angular/http";
-import "rxjs/add/operator/map";
+import { Injectable, EventEmitter, OnInit } from '@angular/core';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
 
-import { Produto } from "./produto.model";
-import { Observable } from "rxjs/Observable";
+import { Produto } from './produto.model';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ProdutoService {
   private result: any;
   private produtos: Array<Produto> = new Array<Produto>();
-  private baseUrl = "https://estoque-facil-server.herokuapp.com/produto";
+  private baseUrl = 'https://estoque-facil-server.herokuapp.com/produto';
 
   constructor(private http: Http) {
     this.listaProdutos().subscribe(resp => {

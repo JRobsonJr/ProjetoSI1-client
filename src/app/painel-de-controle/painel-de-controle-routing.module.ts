@@ -7,7 +7,7 @@ import { ListaVendasComponent } from './venda/lista-vendas/lista-vendas.componen
 
 const routes: Routes = [
   { path: 'painel-de-controle', component: PainelDeControleComponent },
-  { path: 'registrar-venda', component: RegistraVendaComponent },
+  { path: 'venda/registrar', component: RegistraVendaComponent },
   { path: 'vendas', component: ListaVendasComponent }
 ];
 

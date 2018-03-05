@@ -5,7 +5,7 @@ import { CadastraLoteComponent } from './cadastra-lote/cadastra-lote.component';
 import { ListaLotesComponent } from './lista-lotes/lista-lotes.component';
 
 const routes: Routes = [
-  { path: 'cadastrar-lote', component: CadastraLoteComponent },
+  { path: 'lote/cadastrar', component: CadastraLoteComponent },
   { path: 'lotes', component: ListaLotesComponent }
 ];
 

@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { ProdutoService } from './produto.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,6 +9,7 @@ import { CadastraProdutoComponent } from './cadastra-produto/cadastra-produto.co
 
 @NgModule({
   imports: [
+    FormsModule,
     CommonModule,
     ProdutoRoutingModule
   ],

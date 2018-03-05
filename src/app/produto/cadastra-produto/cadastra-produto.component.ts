@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Produto } from '../produto.model';
 import { ProdutoService } from '../produto.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastra-produto',
@@ -17,6 +18,11 @@ export class CadastraProdutoComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onSubmit(form: NgForm) {
+    this.produtoService.cadastraProduto(this.produto);
+    this.produto = new Produto();
   }
 
 }

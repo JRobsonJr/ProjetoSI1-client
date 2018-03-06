@@ -19,17 +19,17 @@
         <td>{{ produto.categoria }}</td>
         <td>{{ produto.fabricante }}</td>
         <td>{{ produto.codigoBarra }}</td>
-        <td><i class="material-icons"
+        <td><i class="material-icons disponivel"
                *ngIf="consultaDisponibilidadeProduto(produto.id)">
                done
             </i>
-            <i class="material-icons"
+            <i class="material-icons indisponivel"
                *ngIf="!consultaDisponibilidadeProduto(produto.id)">
                clear
             </i>
         </td>
         <td>{{ produto.preco }}</td>
-        <td><i class="material-icons" (click)="deletaProduto(produto.id)">delete</i></td>
+        <td><i class="material-icons clickable deleta" (click)="deletaProduto(produto.id)">delete</i></td>
         <!--td>{{ produto.disponivel }}</td-->        
       </tr>
     </tbody>

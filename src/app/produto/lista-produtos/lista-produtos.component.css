@@ -1,3 +1,11 @@
-.material-icons:hover {
-    cursor: pointer;
+.disponivel {
+    color: #09b62e;
+}
+
+.indisponivel {
+    color: #b60909;
+}
+
+.deleta {
+    color: #807979;
 }

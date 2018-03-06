@@ -1,3 +1,30 @@
-<p>
-  cadastra-lote works!
-</p>
+<div class="container">
+  <h3 class="text-center">Cadastre um novo lote!</h3>
+  <br>
+  <form #f="ngForm">
+    <div class="form-control">
+      <div class="form-group">
+        <label class="col-2 col-form-label">Id do produto</label>
+        <div class="col-12">
+          <select name="produto" class="form-control" [(ngModel)]="id" #produto="ngModel" required>
+            <option *ngFor="let produto of produtos">{{ produto.id }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-2 col-form-label">Data de validade</label>
+        <div class="col-12">
+          <input name="validade" class="form-control" type="date" [(ngModel)]="lote.dataDeValidade" #validade="ngModel" required placeholder="Validade">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-2 col-form-label">Quantidade</label>
+        <div class="col-12">
+          <input name="quantidade" class="form-control" type="number" [(ngModel)]="lote.numeroDeItens" #validade="ngModel" required
+            placeholder="Quantidade">
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-secondary btn-lg btn-block" type="submit" [disabled]="f.invalid" (click)="onSubmit(f)">Adicionar lote</button>
+  </form>
+</div>

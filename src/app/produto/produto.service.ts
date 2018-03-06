@@ -41,19 +41,31 @@ export class ProdutoService {
   }
 
   atribuiPrecoProduto(id: number, preco: number) {
-    // TODO: Paulo
+    // TODO: Robson
   }
 
   removeProduto(id: number) {
-    // TODO: Paulo
+    return this.http.delete(this.baseUrl + '/' + id).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   consultaDisponibilidadeProduto(id: number) {
-    // TODO: Paulo
+    return this.http
+      .get(this.baseUrl + '/disponibilidade/' + id)
+      .map(result => (this.result = result.json() as boolean));
   }
 
+  // checar este metodo novamente depois de resolver inconsistencia com o back
   consultaQuantidadeDisponivelProduto(id: number) {
-    // TODO: Paulo
+    return this.http
+      .get(this.baseUrl + '/quantidade/' + id)
+      .map(result => (this.result = result.json() as number));
   }
 
 }

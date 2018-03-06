@@ -4,20 +4,32 @@
     <thead>
       <tr>
         <th width="15%" scope="col">Produto</th>
-        <th width="15%" scope="col">Preço</th>
-        <th width="15%" scope="col">Código de Barra</th>
-        <th width="15%" scope="col">Fabricante</th>
         <th width="15%" scope="col">Categoria</th>
+        <th width="15%" scope="col">Fabricante</th>
+        <th width="15%" scope="col">Código de Barra</th>
+        <th width="15%" scope="col">Disponibilidade</th>
+        <th width="15%" scope="col">Preço</th>
+        <th width="10%" scope="col"></th>
         <!--th width="15%" scope="col">Disponível</th-->
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let produto of produtos">
         <td>{{ produto.nome }}</td>
-        <td>{{ produto.preco }}</td>
-        <td>{{ produto.codigoBarra }}</td>
-        <td>{{ produto.fabricante }}</td>
         <td>{{ produto.categoria }}</td>
+        <td>{{ produto.fabricante }}</td>
+        <td>{{ produto.codigoBarra }}</td>
+        <td><i class="material-icons"
+               *ngIf="consultaDisponibilidadeProduto(produto.id)">
+               done
+            </i>
+            <i class="material-icons"
+               *ngIf="!consultaDisponibilidadeProduto(produto.id)">
+               clear
+            </i>
+        </td>
+        <td>{{ produto.preco }}</td>
+        <td><i class="material-icons" (click)="deletaProduto(produto.id)">delete</i></td>
         <!--td>{{ produto.disponivel }}</td-->        
       </tr>
     </tbody>

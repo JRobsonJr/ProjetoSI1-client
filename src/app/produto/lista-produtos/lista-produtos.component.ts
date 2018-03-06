@@ -10,19 +10,24 @@ import { ProdutoService } from "../produto.service";
 export class ListaProdutosComponent implements OnInit {
   private produtos: Array<Produto> = new Array<Produto>();
 
-  constructor(private produtoService: ProdutoService) {}
+  constructor(private produtoService: ProdutoService) { }
 
   ngOnInit() {
+    this.atualizaListaProdutos();
+  }
+
+  atualizaListaProdutos() {
     this.produtoService
       .listaProdutos()
       .subscribe(produtos => (this.produtos = produtos));
   }
 
-  deletaProduto (id: number) {
+  deletaProduto(id: number) {
     this.produtoService.removeProduto(id);
+    this.produtos = this.produtos.filter((project) => project.id != id);
   }
 
-  consultaDisponibilidadeProduto (id: number) {
+  consultaDisponibilidadeProduto(id: number) {
     return this.produtoService.consultaDisponibilidadeProduto(id);
   }
 }

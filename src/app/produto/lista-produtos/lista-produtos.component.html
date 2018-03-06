@@ -1,5 +1,5 @@
 <div class="container" *ngIf="produtos.length > 0">
-  <!--i class="material-icons">playlist_add</i-->
+  <h4><span class="badge badge-secondary"><i class="material-icons">sort</i></span></h4>
   <table class="table text-center table-hover">
     <thead>
       <tr>
@@ -10,7 +10,7 @@
         <th width="15%" scope="col">Disponibilidade</th>
         <th width="15%" scope="col">Preço</th>
         <th width="10%" scope="col"></th>
-        <!--th width="15%" scope="col">Disponível</th-->
+        <th width="10%" scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -29,9 +29,13 @@
             </i>
         </td>
         <td>{{ produto.preco }}</td>
-        <td><i class="material-icons clickable deleta" (click)="deletaProduto(produto.id)">delete</i></td>
-        <!--td>{{ produto.disponivel }}</td-->        
+        <td><i class="material-icons clickable deleta" (click)="deletaProduto(produto.id)">delete</i></td> 
+        <td><i class="material-icons clickable edita" [routerLink]="['/produto', produto.id]">mode_edit</i></td> 
       </tr>
     </tbody>
   </table>
+</div>
+
+<div class="container" *ngIf="produtos.length == 0" style="background-color:chocolate;color:crimson">
+  <h1 class="text-center">oi n tem produto</h1>
 </div>

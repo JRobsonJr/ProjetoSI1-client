@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { Admin } from '../admin.model';
@@ -8,13 +9,16 @@ import { Admin } from '../admin.model';
   styleUrls: ['./login-admin.component.css']
 })
 export class LoginAdminComponent implements OnInit {
-
   private admin: Admin;
 
   constructor() {
     this.admin = new Admin();
   }
+
   ngOnInit() {
   }
 
+  onSubmit(form: NgForm) {
+    this.admin = new Admin();
+  }
 }

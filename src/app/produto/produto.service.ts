@@ -40,8 +40,15 @@ export class ProdutoService {
       .map(result => (this.result = result.json() as Produto));
   }
 
-  atribuiPrecoProduto(id: number, preco: number) {
-    // TODO: Robson
+  atualizaProduto(id: number, produto: Produto) {
+    this.http.put(this.baseUrl + '/atualiza/' + id, produto).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   removeProduto(id: number) {

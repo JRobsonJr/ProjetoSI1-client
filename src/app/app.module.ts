@@ -14,6 +14,7 @@ import { PainelDeControleModule } from './painel-de-controle/painel-de-controle.
 import { ProdutoModule } from './produto/produto.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AuthService } from "./auth/auth.service";
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -30,7 +31,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     HttpClientModule,
     BsDropdownModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

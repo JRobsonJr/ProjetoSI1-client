@@ -5,6 +5,7 @@ import { Admin } from './admin/admin.model';
 
 @Injectable()
 export class AuthService {
+  private admin: Admin;
   private token: string;
   private baseUrl: string;
 
@@ -15,11 +16,22 @@ export class AuthService {
   autenticaAdmin(admin: Admin) {
     return this.http
       .post(this.baseUrl + 'autenticar', admin)
-      .map(token => {console.log(token); return (this.token = token.json() as string); });
+      .map(token => {
+        this.admin = admin;
+        console.log(token);
+        return (this.token = token.json() as string);
+      });
   }
 
   cadastraAdmin(admin: Admin) {
-    this.http.post(this.baseUrl + 'cadastrar', admin);
+    this.http.post(this.baseUrl + 'cadastrar', admin).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
   logoutAdmin() {
@@ -28,5 +40,9 @@ export class AuthService {
 
   getToken() {
     return this.token;
+  }
+
+  recuperaNomeAdmin() {
+    return this.admin.nome;
   }
 }

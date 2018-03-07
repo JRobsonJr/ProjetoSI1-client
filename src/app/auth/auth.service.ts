@@ -15,7 +15,7 @@ export class AuthService {
   autenticaAdmin(admin: Admin) {
     return this.http
       .post(this.baseUrl + 'autenticar', admin)
-      .map(token => (this.token = token.json() as string));
+      .map(token => {console.log(token); return (this.token = token.json() as string); });
   }
 
   cadastraAdmin(admin: Admin) {

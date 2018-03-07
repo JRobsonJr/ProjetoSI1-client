@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth.service';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,7 +12,7 @@ import { Admin } from '../admin.model';
 export class LoginAdminComponent implements OnInit {
   private admin: Admin;
 
-  constructor() {
+  constructor(private authService: AuthService) {
     this.admin = new Admin();
   }
 
@@ -19,6 +20,7 @@ export class LoginAdminComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.authService.autenticaAdmin(this.admin).subscribe(r => console.log(r));
     this.admin = new Admin();
   }
 }

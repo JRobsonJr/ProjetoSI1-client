@@ -21,7 +21,7 @@ export class AtualizaProdutoComponent implements OnInit {
          this.produto = produto;
          if (this.produto === null) {
            this.router.navigate['/nao-encontrado'];
-         } 
+         }
       } );
     })
    }

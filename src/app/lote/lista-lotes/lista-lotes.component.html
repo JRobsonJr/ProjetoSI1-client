@@ -1,3 +1,25 @@
-<p>
-  lista-lotes works!
-</p>
+<div class="container" *ngIf="lotes.length > 0">
+  <h4><span class="badge badge-secondary"><i class="material-icons">sort</i></span></h4>
+  <table class="table text-center table-hover">
+    <thead>
+      <tr>
+        <th width="15%" scope="col">Produto (id)</th>
+        <th width="15%" scope="col">Número de itens</th>
+        <th width="15%" scope="col">Data de validade</th>
+        <th width="10%" scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lote of lotes">
+        <td>{{ lote.produto.id }}</td>
+        <td>{{ lote.numeroDeItens }}</td>
+        <td>{{ lote.dataDeValidade | date:'dd/MM/yyyy' }}</td>
+        <td><i class="material-icons clickable" [routerLink]="['/produto', lote.produto.id]">info</i></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container" *ngIf="lotes.length == 0" style="background-color:chocolate;color:crimson">
+  <h1 class="text-center">oi n tem lote</h1>
+</div>

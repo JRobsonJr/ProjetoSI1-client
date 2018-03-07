@@ -17,7 +17,7 @@ export class LoteService {
   }
 
   cadastraLote(id: number, lote: Lote) {
-    this.http.post(this.baseUrl + '/produto/' + id + '/lote', lote).subscribe(
+    this.http.post(this.baseUrl + '/produto/' + id, lote).subscribe(
       res => {
         console.log(res);
       },

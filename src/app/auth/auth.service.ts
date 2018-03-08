@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Router } from '@angular/router';
 
 import { Admin } from './admin/admin.model';
 
@@ -9,7 +10,7 @@ export class AuthService {
   private token: string;
   private baseUrl: string;
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private router: Router) {
     this.baseUrl = 'https://estoque-facil-server.herokuapp.com/';
   }
 
@@ -34,15 +35,20 @@ export class AuthService {
     );
   }
 
+  adminEstaAutenticado(): boolean {
+    return this.recuperaToken() !== null;
+  }
+
   logoutAdmin() {
     this.token = null;
+    this.router.navigate(['/login']);
   }
 
-  getToken() {
-    return this.token;
+  recuperaToken(): string {
+    return localStorage.getItem('token');
   }
 
-  recuperaNomeAdmin() {
+  recuperaNomeAdmin(): string {
     return this.admin.nome;
   }
 }

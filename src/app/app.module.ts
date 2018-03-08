@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,8 @@ import { PainelDeControleModule } from './painel-de-controle/painel-de-controle.
 import { ProdutoModule } from './produto/produto.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { AuthService } from "./auth/auth.service";
+import { AuthService } from './auth/auth.service';
+import { TokenInterceptor } from './auth/token.interceptor';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -31,7 +33,12 @@ import { AuthService } from "./auth/auth.service";
     HttpClientModule,
     BsDropdownModule.forRoot()
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

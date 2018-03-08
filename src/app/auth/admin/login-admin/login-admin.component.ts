@@ -34,6 +34,6 @@ export class LoginAdminComponent implements OnInit {
   }
 
   estaAutenticado() {
-    return this.authService.getToken() !== null;
+    return this.authService.recuperaToken() !== null;
   }
 }

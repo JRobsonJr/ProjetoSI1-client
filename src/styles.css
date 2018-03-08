@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-.clickable:hover {
+.clicavel:hover {
     cursor: pointer;
+}
+
+.container {
+    margin-top: 25px;
 }

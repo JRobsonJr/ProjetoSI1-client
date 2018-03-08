@@ -29,8 +29,8 @@
             </i>
         </td>
         <td>{{ produto.preco | currency:'BRL':'symbol' }}</td>
-        <td><i class="material-icons clickable deleta" (click)="deletaProduto(produto.id)">delete</i></td>
-        <td><i class="material-icons clickable edita" [routerLink]="['/produto', produto.id]">mode_edit</i></td>
+        <td><i class="material-icons clicavel deleta" (click)="deletaProduto(produto.id)">delete</i></td>
+        <td><i class="material-icons clicavel edita" [routerLink]="['/produto', produto.id]">mode_edit</i></td>
       </tr>
     </tbody>
   </table>

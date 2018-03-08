@@ -16,7 +16,7 @@
     <tbody>
       <tr *ngFor="let produto of produtos">
         <td>{{ produto.nome }}</td>
-        <td>{{ produto.categoria }}</td>
+        <td>{{ produto.categoria.nome }}</td>
         <td>{{ produto.fabricante }}</td>
         <td>{{ produto.codigoBarra }}</td>
         <td><i class="material-icons disponivel"

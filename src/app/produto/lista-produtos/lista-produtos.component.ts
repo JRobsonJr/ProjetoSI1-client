@@ -26,7 +26,7 @@ export class ListaProdutosComponent implements OnInit {
 
   deletaProduto(id: number) {
     this.produtoService.removeProduto(id);
-    this.produtos = this.produtos.filter((project) => project.id !== id);
+    this.atualizaListaProdutos();
   }
 
   consultaDisponibilidadeProduto(id: number) {

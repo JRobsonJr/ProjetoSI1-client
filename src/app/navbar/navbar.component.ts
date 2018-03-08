@@ -21,4 +21,8 @@ export class NavbarComponent implements OnInit {
   recuperaNomeAdmin() {
     return this.authService.recuperaNomeAdmin();
   }
+
+  adminEstaAutenticado() {
+    return this.authService.adminEstaAutenticado();
+  }
 }

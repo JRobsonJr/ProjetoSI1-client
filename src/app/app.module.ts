@@ -17,6 +17,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AuthService } from './auth/auth.service';
 import { TokenInterceptor } from './auth/token.interceptor';
+import { AuthGuard } from "./auth/auth.guard";
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -33,7 +34,7 @@ import { TokenInterceptor } from './auth/token.interceptor';
     HttpClientModule,
     BsDropdownModule.forRoot()
   ],
-  providers: [AuthService,
+  providers: [AuthService, AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

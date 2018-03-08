@@ -19,8 +19,8 @@ export class AuthService {
       .post(this.baseUrl + 'autenticar', admin)
       .map(token => {
         this.admin = admin;
-        console.log(token);
-        return (this.token = token as string);
+        localStorage.setItem('token', token as string);
+        return token as string;
       });
   }
 
@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   logoutAdmin() {
-    this.token = null;
+    localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
 

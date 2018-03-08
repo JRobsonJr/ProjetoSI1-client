@@ -6,18 +6,11 @@ export class Produto {
   preco: number;
   codigoBarra: string;
   fabricante: string;
-  categoria: Categoria;
+  // categoria: any;
   disponivel: boolean;
+  nomeCategoria: string;
 
   constructor() {
-    this.categoria = new Categoria();
   }
 
-  getCategoria(): string {
-    return this.categoria.nome;
-  }
-
-  getDesconto() {
-    return this.categoria.desconto;
-  }
 }

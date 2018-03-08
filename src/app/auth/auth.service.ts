@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { Admin } from './admin/admin.model';
@@ -10,7 +10,7 @@ export class AuthService {
   private token: string;
   private baseUrl: string;
 
-  constructor(private http: Http, private router: Router) {
+  constructor(private http: HttpClient, private router: Router) {
     this.baseUrl = 'https://estoque-facil-server.herokuapp.com/';
   }
 
@@ -20,7 +20,7 @@ export class AuthService {
       .map(token => {
         this.admin = admin;
         console.log(token);
-        return (this.token = token.json() as string);
+        return (this.token = token as string);
       });
   }
 

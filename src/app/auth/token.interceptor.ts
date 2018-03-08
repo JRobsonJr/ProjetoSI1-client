@@ -6,12 +6,11 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 
-import { AuthService } from './auth.service';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(public authService: AuthService) {}
+  constructor() {}
 
   intercept(
     request: HttpRequest<any>,
@@ -19,7 +18,7 @@ export class TokenInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     request = request.clone({
       setHeaders: {
-        Authorization: `Bearer ${this.authService.recuperaToken()}`
+        Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     });
 

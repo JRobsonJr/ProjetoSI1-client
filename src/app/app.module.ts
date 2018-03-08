@@ -18,6 +18,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AuthService } from './auth/auth.service';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { AuthGuard } from "./auth/auth.guard";
+import { VendaModule } from "./venda/venda.module";
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -32,6 +33,7 @@ import { AuthGuard } from "./auth/auth.guard";
     LoteModule,
     HttpModule,
     HttpClientModule,
+    VendaModule,
     BsDropdownModule.forRoot()
   ],
   providers: [AuthService, AuthGuard,

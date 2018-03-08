@@ -5,27 +5,21 @@ import 'rxjs/add/operator/map';
 
 import { Produto } from './produto.model';
 import { Observable } from 'rxjs/Observable';
+import { Categoria } from './categoria/categoria.model';
 
 @Injectable()
 export class ProdutoService {
   private result: any;
-  private produtos: Array<Produto> = new Array<Produto>();
   private baseUrl = 'https://estoque-facil-server.herokuapp.com/produto/';
 
-  constructor(private http: HttpClient) {
-    this.listaProdutos().subscribe(resp => {
-      this.produtos = resp;
-    });
-  }
+  constructor(private http: HttpClient) { }
 
   listaProdutos(): Observable<Produto[]> {
-    return this.http
-      .get(this.baseUrl)
-      .map(result => (this.result = result as Array<Produto>));
+    return this.http.get<Array<Produto>>(this.baseUrl);
   }
 
   cadastraProduto(produto: Produto) {
-    return this.http.post(this.baseUrl, produto).subscribe(
+    return this.http.post<Produto>(this.baseUrl, produto).subscribe(
       res => {
         console.log(res);
       },
@@ -36,9 +30,7 @@ export class ProdutoService {
   }
 
   consultaProduto(id: number) {
-    return this.http
-      .get(this.baseUrl + id)
-      .map(result => (this.result = result as Produto));
+    return this.http.get<Produto>(this.baseUrl + id);
   }
 
   atualizaProduto(id: number, produto: Produto) {

@@ -11,9 +11,7 @@ export class LoteService {
   constructor(private http: HttpClient) { }
 
   listaLotes() {
-    return this.http
-      .get(this.baseUrl)
-      .map(result => (this.result = result as Array<Lote>));
+    return this.http.get<Array<Lote>>(this.baseUrl);
   }
 
   cadastraLote(id: number, lote: Lote) {

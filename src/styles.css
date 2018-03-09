@@ -7,3 +7,36 @@
 .container {
     margin-top: 25px;
 }
+
+body {
+    background-color: #2E3D53;
+}
+
+.form-control {
+    background-color: #2E3D53;
+}
+
+h3 {
+    color: lightgrey;
+}
+
+label {
+    color: lightgrey;
+}
+
+.form-control {
+    color: white;
+}
+
+.form-control:focus {
+    background-color: #232E3E;
+    color: white;
+}
+
+td {
+    color: lightgrey;
+}
+
+tr {
+    color: grey;
+}

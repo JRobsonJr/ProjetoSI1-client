@@ -1,16 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active" *ngIf="adminEstaAutenticado()">
-                <a class="nav-link" routerLink="/painel-de-controle">Painel de Controle<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item" *ngIf="!adminEstaAutenticado()">
+        <ul class="navbar-nav mr-auto" *ngIf="!adminEstaAutenticado()">
+            <li class="nav-item">
                 <a class="nav-link" routerLink="/cadastro">Cadastro</a>
             </li>
-            <li class="nav-item" *ngIf="!adminEstaAutenticado()">
+            <li class="nav-item">
                 <a class="nav-link" routerLink="/login">Login</a>
             </li>
-            <li class="nav-item" *ngIf="adminEstaAutenticado()">
+        </ul>
+        <ul class="navbar-nav mr-auto" *ngIf="adminEstaAutenticado()">
+            <li class="nav-item">
+                <a class="nav-link">Olá, {{ recuperaNomeAdmin() }}!</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/painel-de-controle">Painel de Controle<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="adminEstaAutenticado()">
+            <li class="nav-item">
                 <a class="nav-link" (click)="logout()" routerLink="/login">Sair</a>
             </li>
         </ul>

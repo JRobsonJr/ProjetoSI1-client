@@ -21,6 +21,7 @@ export class CadastraProdutoComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.produto.setCategoria();
     this.produtoService.cadastraProduto(this.produto);
     this.produto = new Produto();
   }

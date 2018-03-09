@@ -6,11 +6,11 @@ export class Produto {
   preco: number;
   codigoBarra: string;
   fabricante: string;
-  // categoria: any;
+  categoria: any;
   disponivel: boolean;
   nomeCategoria: string;
 
-  constructor() {
+  setCategoria() {
+    this.categoria = new Categoria(this.nomeCategoria);
   }
-
 }

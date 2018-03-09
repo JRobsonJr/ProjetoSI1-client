@@ -18,7 +18,7 @@ export class AuthService {
       .post<string>(this.baseUrl + 'autenticar', admin)
       .map(token => {
         this.admin = admin;
-        localStorage.setItem('token', token as string);
+        localStorage.setItem('token', token['token']);
         return token;
       });
   }

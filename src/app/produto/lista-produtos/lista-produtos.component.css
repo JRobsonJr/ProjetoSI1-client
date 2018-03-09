@@ -10,6 +10,10 @@
     color: #807979;
 }
 
+.ordena {
+    vertical-align:middle;
+}
+
 @keyframes name {
     0% {background-color:chocolate;color:crimson}
     50% {background-color:crimson;color:chocolate}

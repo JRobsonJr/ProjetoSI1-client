@@ -3,12 +3,36 @@
   <table class="table text-center table-hover">
     <thead>
       <tr>
-        <th width="15%" scope="col">Produto</th>
-        <th width="15%" scope="col">Categoria</th>
-        <th width="15%" scope="col">Fabricante</th>
+        <th width="15%" scope="col">
+          Produto 
+          <i class="material-icons clicavel ordena"
+             (click)="ordenarProdutosPorNome()">
+             arrow_drop_down
+          </i>
+        </th>
+        <th width="15%" scope="col">
+          Categoria
+          <i class="material-icons clicavel ordena"
+             (click)="ordenarProdutosPorCategoria()">
+             arrow_drop_down
+          </i>
+        </th>
+        <th width="15%" scope="col">
+          Fabricante
+          <i class="material-icons clicavel ordena"
+             (click)="ordenarProdutosPorFabricante()">
+             arrow_drop_down
+          </i>
+        </th>
         <th width="15%" scope="col">Código de Barra</th>
         <th width="15%" scope="col">Disponibilidade</th>
-        <th width="15%" scope="col">Preço</th>
+        <th width="15%" scope="col">
+          Preço
+          <i class="material-icons clicavel ordena"
+             (click)="ordenarProdutosPorCategoria()">
+             arrow_drop_down
+          </i>
+        </th>
         <th width="10%" scope="col"></th>
         <th width="10%" scope="col"></th>
       </tr>

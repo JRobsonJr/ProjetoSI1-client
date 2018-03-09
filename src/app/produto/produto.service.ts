@@ -68,4 +68,20 @@ export class ProdutoService {
       .map(result => (this.result = result as number));
   }
 
+  ordenarProdutosPorNome(): Observable<Produto[]> {
+    return this.http.get<Array<Produto>>(this.baseUrl + '/ordenar-nome');
+  }
+
+  ordenarProdutosPorCategoria(): Observable<Produto[]> {
+    return this.http.get<Array<Produto>>(this.baseUrl + '/ordenar-categoria');
+  }
+
+  ordenarProdutosPorFabricante(): Observable<Produto[]> {
+    return this.http.get<Array<Produto>>(this.baseUrl + '/ordenar-fabricante');
+  }
+
+  ordenarProdutosPorPreco(): Observable<Produto[]> {
+    return this.http.get<Array<Produto>>(this.baseUrl + '/ordenar-preco');
+  }
+
 }

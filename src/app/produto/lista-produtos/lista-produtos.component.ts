@@ -32,4 +32,28 @@ export class ListaProdutosComponent implements OnInit {
   consultaDisponibilidadeProduto(id: number) {
     return this.produtoService.consultaDisponibilidadeProduto(id);
   }
+
+  ordenarProdutosPorNome() {
+    this.produtoService
+      .ordenarProdutosPorNome() 
+      .subscribe(produtos => (this.produtos = produtos));
+  }
+
+  ordenarProdutosPorCategoria() {
+    this.produtoService
+      .ordenarProdutosPorCategoria() 
+      .subscribe(produtos => (this.produtos = produtos));
+  }
+
+  ordenarProdutosPorFabricante() {
+    this.produtoService
+      .ordenarProdutosPorFabricante() 
+      .subscribe(produtos => (this.produtos = produtos));
+  }
+
+  ordenarProdutosPorPreco() {
+    this.produtoService
+      .ordenarProdutosPorPreco() 
+      .subscribe(produtos => (this.produtos = produtos));
+  }
 }

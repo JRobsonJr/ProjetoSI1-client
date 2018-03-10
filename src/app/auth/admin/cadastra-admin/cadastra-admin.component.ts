@@ -19,6 +19,9 @@ export class CadastraAdminComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.estaAutenticado()) {
+      this.router.navigate(['/painel-de-controle']);
+    }
   }
 
   onSubmit(form: NgForm) {
@@ -26,4 +29,7 @@ export class CadastraAdminComponent implements OnInit {
     this.admin = new Admin();
   }
 
+  estaAutenticado() {
+    return this.authService.adminEstaAutenticado();
+  }
 }

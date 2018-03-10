@@ -17,8 +17,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AuthService } from './auth/auth.service';
 import { TokenInterceptor } from './auth/token.interceptor';
-import { AuthGuard } from "./auth/auth.guard";
-import { VendaModule } from "./venda/venda.module";
+import { AuthGuard } from './auth/auth.guard';
+import { VendaModule } from './venda/venda.module';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],

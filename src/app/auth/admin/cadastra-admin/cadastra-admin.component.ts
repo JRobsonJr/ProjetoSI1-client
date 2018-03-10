@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Admin } from '../admin.model';
 import { AuthService } from './../../auth.service';
 import { NgForm } from '@angular/forms';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastra-admin',
@@ -24,7 +24,6 @@ export class CadastraAdminComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.authService.cadastraAdmin(this.admin);
     this.admin = new Admin();
-    this.router.navigate(['/login']);
   }
 
 }

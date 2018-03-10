@@ -1,10 +1,9 @@
 import { Injectable, EventEmitter, OnInit } from '@angular/core';
 import { Headers, RequestOptions } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 
 import { Produto } from './produto.model';
-import { Observable } from 'rxjs/Observable';
 import { Categoria } from './categoria/categoria.model';
 
 @Injectable()
@@ -12,10 +11,27 @@ export class ProdutoService {
   private result: any;
   private baseUrl = 'https://estoque-facil-server.herokuapp.com/produto/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   listaProdutos(): Observable<Produto[]> {
-    return this.http.get<Array<Produto>>(this.baseUrl);
+    return this.http.get<Array<Produto>>(this.baseUrl).map(produtos => {
+
+      return produtos;
+    });
+  }
+
+  atualizaInformacoesProdutos(produtos: Array<Produto>) {
+    for (const produto of produtos) {
+      this.consultaDisponibilidadeProduto(produto.id).subscribe(disponibilidade =>
+        produto.disponivel = disponibilidade
+      );
+
+      this.consultaPrecoProduto(produto.id).subscribe(preco =>
+        produto.preco = preco
+      );
+    }
+
+    return produtos;
   }
 
   cadastraProduto(produto: Produto) {
@@ -55,17 +71,21 @@ export class ProdutoService {
     );
   }
 
-  consultaDisponibilidadeProduto(id: number) {
+  consultaPrecoProduto(id: number): Observable<number> {
+    return this.http
+      .get(this.baseUrl + 'preco/' + id)
+      .map(objWrapper => objWrapper['obj']);
+  }
+
+  consultaDisponibilidadeProduto(id: number): Observable<boolean> {
     return this.http
       .get(this.baseUrl + 'disponibilidade/' + id)
-      .map(result => (this.result = result as boolean));
+      .map(objWrapper => objWrapper['obj']);
   }
 
   // checar este metodo novamente depois de resolver inconsistencia com o back
   consultaQuantidadeDisponivelProduto(id: number) {
-    return this.http
-      .get(this.baseUrl + 'quantidade/' + id)
-      .map(result => (this.result = result as number));
+    return this.http.get<number>(this.baseUrl + 'quantidade/' + id);
   }
 
   ordenarProdutosPorNome(): Observable<Produto[]> {
@@ -83,5 +103,4 @@ export class ProdutoService {
   ordenarProdutosPorPreco(): Observable<Produto[]> {
     return this.http.get<Array<Produto>>(this.baseUrl + '/ordenar-preco');
   }
-
 }

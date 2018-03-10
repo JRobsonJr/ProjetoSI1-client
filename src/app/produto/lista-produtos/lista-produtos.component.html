@@ -1,10 +1,9 @@
 <div class="container" *ngIf="produtos.length > 0">
-  <h4><span class="badge badge-secondary"><i class="material-icons">sort</i></span></h4>
   <table class="table text-center table-hover">
     <thead>
       <tr>
         <th width="15%" scope="col">
-          Produto 
+          Produto
           <i class="material-icons clicavel ordena"
              (click)="ordenarProdutosPorNome()">
              arrow_drop_down
@@ -44,11 +43,11 @@
         <td>{{ produto.fabricante }}</td>
         <td>{{ produto.codigoBarra }}</td>
         <td><i class="material-icons disponivel"
-               *ngIf="consultaDisponibilidadeProduto(produto.id)">
+               *ngIf="produto.disponivel">
                done
             </i>
             <i class="material-icons indisponivel"
-               *ngIf="!consultaDisponibilidadeProduto(produto.id)">
+               *ngIf="!produto.disponivel">
                clear
             </i>
         </td>

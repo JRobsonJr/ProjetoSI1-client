@@ -1,0 +1,35 @@
+.disponivel {
+    color: #09b62e;
+}
+
+.indisponivel {
+    color: #BF2828;
+}
+
+.deleta, .edita {
+    color: #807979;
+}
+
+.ordena {
+    vertical-align:middle;
+}
+
+@keyframes name {
+    0% {background-color:chocolate;color:crimson}
+    50% {background-color:crimson;color:chocolate}
+    100% {background-color:chocolate;color:crimson}
+}
+
+@keyframes name-2 {
+   0% {background-color:crimson;color:chocolate}
+   50% {background-color:chocolate;color:crimson}
+   100% {background-color:crimson;color:chocolate}
+}
+
+.container-rs {
+   animation: name 0.5s infinite; 
+}
+
+.container-rs2 {
+   animation: name-2 0.5s infinite;
+}

@@ -7,6 +7,7 @@ import { ProdutoRoutingModule } from './produto-routing.module';
 import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
 import { CadastraProdutoComponent } from './cadastra-produto/cadastra-produto.component';
 import { AtualizaProdutoComponent } from './atualiza-produto/atualiza-produto.component';
+import { DescontoComponent } from './desconto/desconto.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { AtualizaProdutoComponent } from './atualiza-produto/atualiza-produto.co
     CommonModule,
     ProdutoRoutingModule
   ],
-  declarations: [ListaProdutosComponent, CadastraProdutoComponent, AtualizaProdutoComponent],
+  declarations: [ListaProdutosComponent, CadastraProdutoComponent, AtualizaProdutoComponent, DescontoComponent],
   providers: [ProdutoService]
 })
 export class ProdutoModule { }

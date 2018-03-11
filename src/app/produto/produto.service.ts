@@ -15,19 +15,18 @@ export class ProdutoService {
 
   listaProdutos(): Observable<Produto[]> {
     return this.http.get<Array<Produto>>(this.baseUrl).map(produtos => {
-
       return produtos;
     });
   }
 
   atualizaInformacoesProdutos(produtos: Array<Produto>) {
     for (const produto of produtos) {
-      this.consultaDisponibilidadeProduto(produto.id).subscribe(disponibilidade =>
-        produto.disponivel = disponibilidade
+      this.consultaDisponibilidadeProduto(produto.id).subscribe(
+        disponibilidade => (produto.disponivel = disponibilidade)
       );
 
-      this.consultaPrecoProduto(produto.id).subscribe(preco =>
-        produto.preco = preco
+      this.consultaPrecoProduto(produto.id).subscribe(
+        preco => (produto.preco = preco)
       );
     }
 
@@ -107,5 +106,15 @@ export class ProdutoService {
 
   ordenarProdutosPorPreco(): Observable<Produto[]> {
     return this.http.get<Array<Produto>>(this.baseUrl + '/ordenar-preco');
+  }
+
+  listaCategorias() {
+    return this.http
+      .get(this.baseUrl + 'listar-categorias')
+      .map(objWrapper => objWrapper['obj']);
+  }
+
+  atribuiDescontoACategoria(categoria: string, desconto: string) {
+    this.http.post(this.baseUrl + 'categoria/' + categoria + '/desconto/' + desconto, null).subscribe();
   }
 }

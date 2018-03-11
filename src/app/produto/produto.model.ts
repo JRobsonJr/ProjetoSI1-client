@@ -1,4 +1,4 @@
-import { Categoria } from "./categoria/categoria.model";
+import { Categoria } from './categoria/categoria.model';
 
 export class Produto {
   id: number;
@@ -6,11 +6,15 @@ export class Produto {
   preco: number;
   codigoBarra: string;
   fabricante: string;
-  categoria: any;
+  categoria: Categoria;
   disponivel: boolean;
   nomeCategoria: string;
 
   setCategoria() {
     this.categoria = new Categoria(this.nomeCategoria);
+  }
+
+  setNomeCategoria(): any {
+    this.nomeCategoria = this.categoria.nome;
   }
 }

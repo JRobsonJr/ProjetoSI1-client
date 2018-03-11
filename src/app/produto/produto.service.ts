@@ -46,7 +46,12 @@ export class ProdutoService {
   }
 
   consultaProduto(id: number) {
-    return this.http.get<Produto>(this.baseUrl + id);
+    return this.http.get(this.baseUrl + id).map(result => {
+      const produto: Produto = new Produto();
+      Object.assign(produto, result);
+      produto.setNomeCategoria();
+      return produto;
+    });
   }
 
   atualizaProduto(id: number, produto: Produto) {

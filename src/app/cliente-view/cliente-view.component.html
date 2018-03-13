@@ -1,83 +1,53 @@
 <div class="container" *ngIf="produtos.length > 0">
-    <h3 class="text-center">Produtos cadastrados</h3><br/>
-    <table class="table text-center table-hover">
-      <thead>
-        <tr>
-          <th width="15%" scope="col">
-            Produto
-            <i class="material-icons clicavel ordena" (click)="ordenarProdutosPorNome()">
-              arrow_drop_down
-            </i>
-          </th>
-          <th width="15%" scope="col">
-            Categoria
-            <i class="material-icons clicavel ordena" (click)="ordenarProdutosPorCategoria()">
-              arrow_drop_down
-            </i>
-          </th>
-          <th width="15%" scope="col">
-            Fabricante
-            <i class="material-icons clicavel ordena" (click)="ordenarProdutosPorFabricante()">
-              arrow_drop_down
-            </i>
-          </th>
-          <th width="15%" scope="col">Código de Barra</th>
-          <th width="15%" scope="col">
-            Preço
-            <i class="material-icons clicavel ordena" (click)="ordenarProdutosPorCategoria()">
-              arrow_drop_down
-            </i>
-          </th>
-          <th width="15%" scope="col">Disponibilidade</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let produto of produtos">
-          <td>{{ produto.nome }}</td>
-          <td>{{ produto.categoria.nome }}</td>
-          <td>{{ produto.fabricante }}</td>
-          <td>{{ produto.codigoBarra }}</td>
-          <td>{{ produto.preco | currency:'BRL':'symbol' }}</td>
-          <td>
-            <i class="material-icons disponivel" *ngIf="produto.disponivel">
-              done
-            </i>
-            <i class="material-icons indisponivel" *ngIf="!produto.disponivel">
-              clear
-            </i>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
-  <div class="container container-rs" *ngIf="produtos.length == 0">
-    <h1 class="text-center">oi n tem produto</h1>
-  </div>
-  
-  <div class="container container-rs2" *ngIf="produtos.length == 0">
-    <h1 class="text-center">oi n tem produto</h1>
-  </div>
-  <div class="container container-rs" *ngIf="produtos.length == 0">
-    <h1 class="text-center">oi n tem produto</h1>
-  </div>
-  
-  <div class="container container-rs2" *ngIf="produtos.length == 0">
-    <h1 class="text-center">oi n tem produto</h1>
-  </div>
-  <div class="container container-rs" *ngIf="produtos.length == 0">
-    <h1 class="text-center">oi n tem produto</h1>
-  </div>
-  
-  <div class="container container-rs2" *ngIf="produtos.length == 0">
-    <h1 class="text-center">oi n tem produto</h1>
-  </div>
-  
-  <div class="container container-rs" *ngIf="produtos.length == 0">
-    <h1 class="text-center">oi n tem produto</h1>
-  </div>
-  
-  <div class="container container-rs2" *ngIf="produtos.length == 0">
-    <h1 class="text-center">oi n tem produto</h1>
-  </div>
-  
+  <h3 class="text-center">Produtos cadastrados</h3>
+  <br/>
+  <table class="table text-center table-hover">
+    <thead>
+      <tr>
+        <th width="15%" scope="col">
+          Produto
+          <i class="material-icons clicavel ordena" (click)="ordenarProdutosPorNome()">
+            arrow_drop_down
+          </i>
+        </th>
+        <th width="15%" scope="col">
+          Categoria
+          <i class="material-icons clicavel ordena" (click)="ordenarProdutosPorCategoria()">
+            arrow_drop_down
+          </i>
+        </th>
+        <th width="15%" scope="col">
+          Fabricante
+          <i class="material-icons clicavel ordena" (click)="ordenarProdutosPorFabricante()">
+            arrow_drop_down
+          </i>
+        </th>
+        <th width="15%" scope="col">Código de Barra</th>
+        <th width="15%" scope="col">
+          Preço
+          <i class="material-icons clicavel ordena" (click)="ordenarProdutosPorCategoria()">
+            arrow_drop_down
+          </i>
+        </th>
+        <th width="15%" scope="col">Disponibilidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of produtos">
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.categoria.nome }}</td>
+        <td>{{ produto.fabricante }}</td>
+        <td>{{ produto.codigoBarra }}</td>
+        <td>{{ produto.preco | currency:'BRL':'symbol' }}</td>
+        <td>
+          <i class="material-icons disponivel" *ngIf="produto.disponivel">
+            done
+          </i>
+          <i class="material-icons indisponivel" *ngIf="!produto.disponivel">
+            clear
+          </i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

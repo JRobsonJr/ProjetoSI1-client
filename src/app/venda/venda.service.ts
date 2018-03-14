@@ -13,13 +13,26 @@ export class VendaService {
     private produtoService: ProdutoService
   ) {}
 
-  cadastraVenda(carrinho: Array<VendaItem>) {}
+  cadastraVenda(carrinho: Array<VendaItem>, data: string) {
+    this.http.post(this.baseUrl + '/compra/' + data, carrinho).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 
   consultaProduto(idProduto: number) {
     return this.produtoService.consultaProduto(idProduto);
   }
 
   listaVendas() {}
+
+  recuperaProdutos() {
+    return this.produtoService.listaProdutos();
+  }
 
   recuperaTotalVendas() {}
 

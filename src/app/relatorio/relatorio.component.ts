@@ -29,11 +29,11 @@ export class RelatorioComponent implements OnInit {
   }
 
   recuperaTotalLotes() {
-    return this.relatorioService.recuperaTotalLotes().subscribe(lotes => lotes);
+    return this.relatorioService.recuperaTotalLotes().subscribe(lotes => this.lotesTotal = lotes);
   }
 
   recuperaTotalProdutos() {
-    return this.relatorioService.recuperaTotalProdutos().subscribe(lotes => lotes);
+    return this.relatorioService.recuperaTotalProdutos().subscribe(produtos => this.produtosTotal = produtos);
   }
 
   recuperaInformacoes() {

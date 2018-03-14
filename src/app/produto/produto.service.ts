@@ -9,12 +9,12 @@ import { Categoria } from './categoria/categoria.model';
 @Injectable()
 export class ProdutoService {
   private result: any;
-  private baseUrl = 'https://estoque-facil-server.herokuapp.com/produto/';
+  private baseUrl = 'https://estoque-facil-server.herokuapp.com/';
 
   constructor(private http: HttpClient) {}
 
   listaProdutos(): Observable<Produto[]> {
-    return this.http.get<Array<Produto>>(this.baseUrl).map(produtos => {
+    return this.http.get<Array<Produto>>(this.baseUrl + 'produto').map(produtos => {
       return produtos;
     });
   }
@@ -34,7 +34,7 @@ export class ProdutoService {
   }
 
   cadastraProduto(produto: Produto) {
-    return this.http.post<Produto>(this.baseUrl, produto).subscribe(
+    return this.http.post<Produto>(this.baseUrl + 'produto', produto).subscribe(
       res => {
         console.log(res);
       },
@@ -45,7 +45,7 @@ export class ProdutoService {
   }
 
   consultaProduto(id: number) {
-    return this.http.get(this.baseUrl + id).map(result => {
+    return this.http.get(this.baseUrl + 'produto/' + id).map(result => {
       const produto: Produto = new Produto();
       Object.assign(produto, result);
       produto.setNomeCategoria();
@@ -54,7 +54,7 @@ export class ProdutoService {
   }
 
   atualizaProduto(id: number, produto: Produto) {
-    this.http.put(this.baseUrl + 'atualiza/' + id, produto).subscribe(
+    this.http.put(this.baseUrl + 'produto/atualiza/' + id, produto).subscribe(
       res => {
         console.log(res);
       },
@@ -65,7 +65,7 @@ export class ProdutoService {
   }
 
   removeProduto(id: number) {
-    return this.http.delete(this.baseUrl + id).subscribe(
+    return this.http.delete(this.baseUrl + 'produto/' + id).subscribe(
       res => {
         console.log(res);
       },
@@ -77,41 +77,38 @@ export class ProdutoService {
 
   consultaPrecoProduto(id: number): Observable<number> {
     return this.http
-      .get(this.baseUrl + 'preco/' + id)
+      .get(this.baseUrl + 'produto/preco/' + id)
       .map(objWrapper => objWrapper['obj']);
   }
 
   consultaDisponibilidadeProduto(id: number): Observable<boolean> {
     return this.http
-      .get(this.baseUrl + 'disponibilidade/' + id)
+      .get(this.baseUrl + 'produto/disponibilidade/' + id)
       .map(objWrapper => objWrapper['obj']);
   }
 
-  // checar este metodo novamente depois de resolver inconsistencia com o back
   consultaQuantidadeDisponivelProduto(id: number) {
-    return this.http.get<number>(this.baseUrl + 'quantidade/' + id);
+    return this.http.get<number>(this.baseUrl + 'produto/quantidade/' + id);
   }
 
   ordenarProdutosPorNome(): Observable<Produto[]> {
-    return this.http.get<Array<Produto>>(this.baseUrl + '/ordenar-nome');
+    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-nome');
   }
 
   ordenarProdutosPorCategoria(): Observable<Produto[]> {
-    return this.http.get<Array<Produto>>(this.baseUrl + '/ordenar-categoria');
+    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-categoria');
   }
 
   ordenarProdutosPorFabricante(): Observable<Produto[]> {
-    return this.http.get<Array<Produto>>(this.baseUrl + '/ordenar-fabricante');
+    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-fabricante');
   }
 
   ordenarProdutosPorPreco(): Observable<Produto[]> {
-    return this.http.get<Array<Produto>>(this.baseUrl + '/ordenar-preco');
+    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-preco');
   }
 
   listaCategorias() {
-    return this.http
-      .get(this.baseUrl + 'listar-categorias')
-      .map(objWrapper => objWrapper['obj']);
+    return this.http.get<Array<string>>(this.baseUrl + '/lista-categoria').map(objWrapper => objWrapper['obj']);
   }
 
   atribuiDescontoACategoria(categoria: string, desconto: string) {

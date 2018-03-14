@@ -1,28 +1,28 @@
 <div class="container">
-  <h3 class="text-center">O gente ta maluco</h3>
+  <h3 class="text-center">O gerente ta maluco</h3>
   <br>
   <form #f="ngForm">
     <div class="form-control">
       <div class="form-group">
         <label class="col-2 col-form-label">Categoria</label>
         <div class="col-12">
-          <select name="categoria" class="form-control" [(ngModel)]="categoria" #categoria="ngModel" required>
-            <option *ngFor="let categoria of categorias">{{ categoria }}</option>
+          <select name="categoria" class="form-control" [(ngModel)]="categoria" required>
+            <option *ngFor="let nomeCategoria of categorias">{{ nomeCategoria }}</option>
           </select>
         </div>
       </div>
       <div class="form-group">
         <label class="col-2 col-form-label">Desconto</label>
         <div class="col-12">
-          <select name="desconto" class="form-control" [(ngModel)]="desconto" #desconto="ngModel" required>
-            <option>Sem desconto</option>
-            <option>Bom desconto</option>
-            <option>Otimo desconto</option>
-            <option>Super desconto</option>
+          <select name="desconto" class="form-control" [(ngModel)]="desconto" required>
+            <option>Sem</option>
+            <option>Bom</option>
+            <option>Otimo</option>
+            <option>Super</option>
           </select>
         </div>
       </div>
     </div>
-    <button class="btn btn-secondary btn-lg btn-block" type="submit" [disabled]="f.invalid" (click)="onSubmit(f)">Adicionar lote</button>
+    <button class="btn btn-secondary btn-lg btn-block" type="submit" [disabled]="f.invalid" (click)="onSubmit(f)">Atribuir desconto</button>
   </form>
 </div>

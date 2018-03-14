@@ -8,7 +8,7 @@ import { ProdutoService } from './../produto.service';
   styleUrls: ['./desconto.component.css']
 })
 export class DescontoComponent implements OnInit {
-  categorias: Array<string>;
+  categorias: Array<string> = new Array<string>();
   categoria: string;
   desconto: string;
 

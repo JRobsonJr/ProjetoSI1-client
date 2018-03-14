@@ -45,14 +45,7 @@ export class ProdutoService {
   }
 
   removeProduto(id: number) {
-    return this.http.delete(this.baseUrl + id).subscribe(
-      res => {
-        console.log(res);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    return this.http.delete<Array<Produto>>(this.baseUrl + id);
   }
 
   consultaDisponibilidadeProduto(id: number) {

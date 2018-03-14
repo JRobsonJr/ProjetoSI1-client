@@ -14,7 +14,7 @@ export class VendaService {
   ) {}
 
   cadastraVenda(carrinho: Array<VendaItem>, data: string) {
-    this.http.post(this.baseUrl + '/compra/' + data, carrinho).subscribe(
+    this.http.post(this.baseUrl + 'compra/' + data, carrinho).subscribe(
       res => {
         console.log(res);
       },

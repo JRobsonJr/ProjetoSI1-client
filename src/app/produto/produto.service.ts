@@ -15,7 +15,7 @@ export class ProdutoService {
 
   listaProdutos(): Observable<Produto[]> {
     return this.http.get<Array<Produto>>(this.baseUrl + 'produto').map(produtos => {
-      return produtos;
+      return this.atualizaInformacoesProdutos(produtos);
     });
   }
 

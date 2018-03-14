@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Lote } from './lote.model';
+import { Produto } from '../produto/produto.model';
 
 @Injectable()
 export class LoteService {
@@ -12,6 +13,18 @@ export class LoteService {
 
   listaLotes() {
     return this.http.get<Array<Lote>>(this.baseUrl);
+  }
+
+  listaProdutosDisponiveis() {
+    return this.http.get<Array<Produto>>(this.baseUrl + 'lista-produtos-disponiveis');
+  }
+
+  listaProdutosIndisponiveis() {
+    return this.http.get<Array<Produto>>(this.baseUrl + 'lista-produtos-indisponiveis');
+  }
+
+  listaProdutosVencidos() {
+    return this.http.get<Array<Produto>>(this.baseUrl + 'lista-produtos-vencidos');
   }
 
   cadastraLote(id: number, lote: Lote) {

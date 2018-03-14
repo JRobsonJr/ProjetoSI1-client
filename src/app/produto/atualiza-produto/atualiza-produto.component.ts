@@ -14,26 +14,27 @@ export class AtualizaProdutoComponent implements OnInit {
   private id: number;
   private produto: Produto = new Produto();
 
-  constructor(private route: ActivatedRoute, private router: Router, private produtoService: ProdutoService) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private produtoService: ProdutoService
+  ) {
     this.route.params.subscribe((params: any) => {
       this.id = params['id'];
       this.recuperaProduto(this.id).subscribe(produto => {
-         this.produto = produto;
-         if (this.produto === null) {
-           this.router.navigate['/nao-encontrado'];
-         }
-      } );
-    })
-   }
-
-  ngOnInit() {
+        Object.assign(this.produto, produto);
+      });
+    });
   }
+
+  ngOnInit() {}
 
   recuperaProduto(id: number) {
     return this.produtoService.consultaProduto(id);
   }
 
   onSubmit(form: NgForm) {
+    this.produto.setCategoria();
     this.produtoService.atualizaProduto(this.id, this.produto);
   }
 }

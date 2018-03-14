@@ -1,0 +1,11 @@
+<div class="container-fluid" *ngIf="produtosVencimentoProximo.length > 0">
+  <div class="alert alert-danger" role="alert" *ngFor="let produto of produtosVencimentoProximo">
+    O produto {{ produto.nome }} ({{ produto.codigoBarra }}) está se aproximando de seu vencimento.
+  </div>
+</div>
+
+<div class="container-fluid" *ngIf="produtosBaixaQtd.length > 0">
+  <div class="alert alert-danger" role="alert" *ngFor="let produto of produtosBaixaQtd">
+    O produto {{ produto.nome }} ({{ produto.codigoBarra }}) está se esgotando nos estoques.
+  </div>
+</div>

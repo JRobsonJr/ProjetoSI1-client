@@ -2,6 +2,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto" *ngIf="!adminEstaAutenticado()">
             <li class="nav-item">
+                <a class="nav-link" routerLink="/home">Home</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" routerLink="/cadastro">Cadastro</a>
             </li>
             <li class="nav-item">
@@ -13,8 +16,11 @@
                 <a class="nav-link">Olá, {{ recuperaNomeAdmin() }}!</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" routerLink="/painel-de-controle">Painel de Controle<span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink="/painel-de-controle">Painel de Controle</a>
             </li>
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/notificacoes">Notificações</a>
+          </li>
         </ul>
         <ul class="navbar-nav ml-auto" *ngIf="adminEstaAutenticado()">
             <li class="nav-item">

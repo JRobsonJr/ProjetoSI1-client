@@ -3,11 +3,15 @@
 }
 
 .indisponivel {
-    color: #b60909;
+    color: #BF2828;
 }
 
 .deleta, .edita {
     color: #807979;
+}
+
+.ordena {
+    vertical-align:middle;
 }
 
 @keyframes name {

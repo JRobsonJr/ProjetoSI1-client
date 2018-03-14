@@ -25,7 +25,6 @@ export class LoginAdminComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.authService.autenticaAdmin(this.admin).subscribe(token => {
-      console.log(this.estaAutenticado());
       if (this.estaAutenticado()) {
         this.router.navigate(['/painel-de-controle']);
       }

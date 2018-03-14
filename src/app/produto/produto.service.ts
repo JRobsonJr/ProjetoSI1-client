@@ -65,7 +65,7 @@ export class ProdutoService {
   }
 
   removeProduto(id: number) {
-    return this.http.delete<Array<Produto>>(this.baseUrl + id);
+    return this.http.delete<Array<Produto>>(this.baseUrl + 'produto/' + id);
   }
 
   consultaPrecoProduto(id: number): Observable<number> {

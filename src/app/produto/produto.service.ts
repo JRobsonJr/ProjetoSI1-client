@@ -85,19 +85,27 @@ export class ProdutoService {
   }
 
   ordenarProdutosPorNome(): Observable<Produto[]> {
-    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-nome');
+    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-nome').map(produtos => {
+      return this.atualizaInformacoesProdutos(produtos);
+    });
   }
 
   ordenarProdutosPorCategoria(): Observable<Produto[]> {
-    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-categoria');
+    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-categoria').map(produtos => {
+      return this.atualizaInformacoesProdutos(produtos);
+    });
   }
 
   ordenarProdutosPorFabricante(): Observable<Produto[]> {
-    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-fabricante');
+    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-fabricante').map(produtos => {
+      return this.atualizaInformacoesProdutos(produtos);
+    });
   }
 
   ordenarProdutosPorPreco(): Observable<Produto[]> {
-    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-preco');
+    return this.http.get<Array<Produto>>(this.baseUrl + 'produto/ordenar-preco').map(produtos => {
+      return this.atualizaInformacoesProdutos(produtos);
+    });
   }
 
   listaCategorias() {
